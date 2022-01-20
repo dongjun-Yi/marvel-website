@@ -65,7 +65,7 @@ const showCharactersPage= ()=>{
              <img src="${item.thumbnail.path}.jpg" class="card-img-top">
              <div class="card-body">
                <h5 class="card-title">${item.name}</h5>
-               <a href="${item.urls[0].url}" class="btn btn-primary">Read More</a>
+               <a href="${item.urls[0].url}" class="btn btn-primary">More Details</a>
                  </div>
              </div>
          </div>`
