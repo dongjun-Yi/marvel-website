@@ -60,52 +60,56 @@ const showCharactersPage= ()=>{
     let resultHTML='';
     resultHTML = marvel_data.map(item=>{
          return `
-         <div class="col-md-4 col-sm-12">
+         <div class="col-md-2 col-sm-12">
          <div class="card">
              <img src="${item.thumbnail.path}.jpg" class="card-img-top">
              <div class="card-body">
                <h5 class="card-title">${item.name}</h5>
-               <a href="${item.urls[0].url}" class="btn btn-primary">More Details</a>
+               <a href="${item.urls[0].url}" class="btn btn-primary color-detail">More Details</a>
                  </div>
              </div>
          </div>`
     }).join('');
     
-   document.querySelector(".row").innerHTML= `<h2>${topic.toUpperCase()}</h2>`+ resultHTML;
+   document.querySelector(".row").innerHTML= `<h2 class="page-text">${topic.toUpperCase()}</h2>`+ resultHTML;
 }
 
 const showComicSeriesPage= ()=>{
     let resultHTML='';
     resultHTML = marvel_data.map(item=>{
-         return `<div class="col-md-4 col-sm-12">
-         <div class="card">
-             <img src="${item.thumbnail.path}.jpg" class="card-img-top">
-             <div class="card-body">
-               <h5 class="card-title">${item.title}</h5>
-               <a href="${item.urls[0].url}" class="btn btn-primary">Read More</a>
-                 </div>
-             </div>
-         </div>`
+         return `<div class="col-md-2 col-sm-12" style="margin-top:1em;">
+         <div class="text-center">
+        <img src="${item.thumbnail.path}.jpg" class="rounded" style="width:145px;height:218px;">
+        </div>
+        <div style="display:flex; justify-content:center;">
+        <a href="${item.urls[0].url}" style="color:white; text-decoration:none;">${item.title}</a>
+        </div>
+    </div>`
     }).join('');
  
-    document.querySelector(".row").innerHTML= `<h2>${topic.toUpperCase()}</h2>`+ resultHTML;
+    document.querySelector(".row").innerHTML= `<h2 class="page-text">${topic.toUpperCase()}</h2>`+ resultHTML;
  }
 
 const showStoriesPage= ()=>{
     let resultHTML='';
     resultHTML = marvel_data.map(item=>{
-         return `<div class="col-md-4 col-sm-12">
-         <div class="card">
-           
-             <div class="card-body">
-               <h5 class="card-title">${item.title}</h5>
-               <a href="#" class="btn btn-primary" onclick="getStories(${item.id})">See Original</a>
-                 </div>
+         return ` <div class="accordion" id="accordionExample">
+         <div class="accordion-item">
+           <h2 class="accordion-header" id="headingOne">
+             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+               ${item.title.length>20? item.title.substring(0,20)+"...": item.title}
+             </button>
+           </h2>
+           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+             <div class="accordion-body" onclick="getStories(${item.id})">
+              ${item.title}
              </div>
-         </div>`
+           </div>
+         </div>
+       </div>`
     }).join('');
  
-    document.querySelector(".row").innerHTML= `<h2>${topic.toUpperCase()}</h2>`+resultHTML;
+    document.querySelector(".row").innerHTML= `<h2 class="page-text">${topic.toUpperCase()}</h2>`+resultHTML;
 }
 
 // 검색화면 보여주는 함수
@@ -117,14 +121,14 @@ const showSearchPage= ()=>{
          <img src="${item.thumbnail.path}.jpg" class="card-img-top">
              <div class="card-body">
                <h5 class="card-title">${item.name}</h5>
-               <a href="${item.urls[0].url}" class="btn btn-primary">Read More</a>
+               <a href="${item.urls[0].url}" class="btn btn-primary color-detail">Read More</a>
                  </div>
              </div>
          </div>
          `
     }).join('');
  
-    document.querySelector(".row").innerHTML=  `<h2>"${InputBox.toUpperCase()}" RESULTS</h2>`+resultHTML;
+    document.querySelector(".row").innerHTML=  `<h2 class="page-text">"${InputBox.toUpperCase()}" RESULTS</h2>`+resultHTML;
 }
 
 const StoryOriginalPage=()=>{
@@ -135,7 +139,7 @@ const StoryOriginalPage=()=>{
          <img src="${item.thumbnail.path}.jpg" class="card-img-top">
              <div class="card-body">
                <h5 class="card-title">${item.title}</h5>
-               <a href="${item.urls[0].url}" class="btn btn-primary">Read More</a>
+               <a href="${item.urls[0].url}" class="btn btn-primary color-detail">Read More</a>
                  </div>
              </div>
          </div>`

@@ -1,4 +1,6 @@
-
+body{
+    background-color: #202020;
+}
 .title-line{
     display : flex;
     justify-content: center;
@@ -30,6 +32,7 @@
     margin-right : 3em;
     margin-left:3em;
     border : none;
+    color:white
     
 }
 
@@ -48,11 +51,12 @@
 
 .card{
     margin-top: 1em;
+    max-height: 300px;
 }
 
 .card img{
     max-width:100%;
-    max-height:300px;
+    max-height:150px;
 }
 
 .input-area{
@@ -62,7 +66,7 @@
 .side-menu{
     position: fixed;
     top : 0;
-    background: lightsalmon;
+    background: orangered;
     width:0;
     height:100%;
     display: flex;
@@ -92,8 +96,16 @@
     width:120px;
 }
 
+.search-icon{
+    color:white;
+}
+
 .search-icon:hover{
     cursor: pointer;
+}
+
+.menu-icon{
+    color :white;
 }
 
 .center-area{
@@ -111,6 +123,7 @@
     font-style: italic;
     font-size: 40px;
     font-weight: 900;
+    color:white;
 }
 
 .main-image div img{
@@ -122,6 +135,36 @@
     margin-top:1em;
     display: flex;
     justify-content: center;
+}
+.page-link{
+    color :red;
+}
+
+.page-link:hover{
+    border-color :orangered;
+    background-color :orangered;
+    color: white;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: red;
+    border-color: red;
+}
+
+.color-detail{
+    border-color :red;
+    background-color :red;
+}
+
+.color-detail:hover{
+    border-color :orangered;
+    background-color :orangered;
+}
+
+.page-text{
+    color :white;
 }
 
 @media screen and (max-width : 63em){
@@ -139,6 +182,11 @@
         font-style: italic;
         font-size: 20px;
         font-weight: 900;
+    }
+
+    .card img{
+        max-width:100%;
+        max-height: 200px;
     }
 
 }   
