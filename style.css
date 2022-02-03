@@ -66,7 +66,7 @@ body{
 .side-menu{
     position: fixed;
     top : 0;
-    background: orangered;
+    background: rgb(252, 63, 63);
     width:0;
     height:100%;
     display: flex;
@@ -167,6 +167,22 @@ body{
     color :white;
 }
 
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: lightcoral;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+.accordion-body:hover{
+    cursor: pointer;
+}
+
+.accordion-button:not(.collapsed)::after {
+    color : white;
+}
+
+
+
 @media screen and (max-width : 63em){
     .menu-line{
         display: none;
@@ -190,9 +206,3 @@ body{
     }
 
 }   
-
-    
-
-
-
-
