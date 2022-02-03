@@ -61,7 +61,7 @@ const showCharactersPage= ()=>{
     resultHTML = marvel_data.map(item=>{
          return `
          <div class="col-md-2 col-sm-12">
-         <div class="card">
+         <div class="card overflow-auto">
              <img src="${item.thumbnail.path}.jpg" class="card-img-top">
              <div class="card-body">
                <h5 class="card-title">${item.name}</h5>
@@ -93,20 +93,20 @@ const showComicSeriesPage= ()=>{
 const showStoriesPage= ()=>{
     let resultHTML='';
     resultHTML = marvel_data.map(item=>{
-         return ` <div class="accordion" id="accordionExample">
+         return `
          <div class="accordion-item">
-           <h2 class="accordion-header" id="headingOne">
-             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-               ${item.title.length>20? item.title.substring(0,20)+"...": item.title}
-             </button>
-           </h2>
-           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-             <div class="accordion-body" onclick="getStories(${item.id})">
-              ${item.title}
-             </div>
+         <h2 class="accordion-header" id="headingTwo">
+           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+           ${item.title.length>20? item.title.substring(0,20)+"...": item.title}
+           </button>
+         </h2>
+         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+           <div class="accordion-body" onclick="getStories(${item.id})">
+           ${item.title}
            </div>
          </div>
-       </div>`
+       </div>
+       `
     }).join('');
  
     document.querySelector(".row").innerHTML= `<h2 class="page-text">${topic.toUpperCase()}</h2>`+resultHTML;
@@ -266,5 +266,3 @@ const getNewsByTopic= async(event)=>{
     SearchPageMode=false;
     getdata();
 };
-
-
